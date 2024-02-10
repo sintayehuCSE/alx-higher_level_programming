@@ -10,10 +10,12 @@ class Square:
             size (int): The size of the square
         """
         self.size = size
+
     @property
     def size(self):
         """Get the value of object attribute."""
         return (self.__size)
+
     @size.setter
     def size(self, size):
         if not isinstance(size, int):
@@ -22,6 +24,7 @@ class Square:
             raise ValueError("size must be >= 0")
         else:
             self.__size = size
+
     def area(self):
         """Return the area of the square"""
         return (self.__size ** 2)
