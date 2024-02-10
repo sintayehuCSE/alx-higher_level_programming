@@ -1,7 +1,3 @@
-#!/usr/bin/python3
-"""Defines a class Square."""
-
-
+#!/user/bin/python3
 class Square:
-    """Represents a square. No body."""
     pass
