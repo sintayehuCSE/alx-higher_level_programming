@@ -37,6 +37,7 @@ class Node:
             raise TypeError("next_node must be a Node object")
         self.__next_node = value
 
+
 class SinglyLinkedList():
     """Represent a singly linked list."""
     def __init__(self):
@@ -63,6 +64,7 @@ class SinglyLinkedList():
             while (temp.next_node) and (temp.next_node.data < value):
                 temp = temp.next_node
             temp.next_node = new_node
+
     def __str__(self):
         """Define the print() representation of a SinglyLinkedList."""
         value = []
