@@ -55,6 +55,7 @@ class SinglyLinkedList():
         """
         new_node = Node(value)
         if not self.__head:
+            new_node.next_node = None
             self.__head = new_node
         elif self.__head.data > value:
             new_node.next_node = self.__head
@@ -63,6 +64,7 @@ class SinglyLinkedList():
             temp = self.__head
             while (temp.next_node) and (temp.next_node.data < value):
                 temp = temp.next_node
+            new_node.next_node = temp.next_node
             temp.next_node = new_node
 
     def __str__(self):
