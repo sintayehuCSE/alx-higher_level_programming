@@ -51,13 +51,11 @@ class Square():
 
     def my_print(self):
         """Draw the square with # character."""
-        [print() for i in range(self.__position[1])]
+        if self.__size == 0:
+            print()
+        [print() for i in range(self.__position[1]) if self.__size != 0]
         for i in range(self.__size):
-            for j in range(self.__position[0]):
-                if self.__position[1] >= 0:
-                    print(" ", end="")
-                else:
-                    print("_", end="")
+            [print(" ", end="") for j in range(self.__position[0])]
             for j in range(self.__size):
                 print("#", end="")
             print()
