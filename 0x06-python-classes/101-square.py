@@ -51,7 +51,6 @@ class Square:
         if self.__size == 0:
             if self.__str != 1:
                 print()
-            return
         else:
             [print() for i in range(self.__position[1])]
             for i in range(self.__size):
@@ -61,6 +60,8 @@ class Square:
                     print()
                 elif (self.__str) and (i != (self.__size - 1)):
                     print()
+        if self.__str:
+            self.__str = 0
 
     def __str__(self):
         """The string representation of square object."""
