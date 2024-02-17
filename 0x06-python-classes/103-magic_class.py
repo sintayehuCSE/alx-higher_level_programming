@@ -15,17 +15,6 @@ class MagicClass:
             raise TypeError("radius must be a number")
         self.__radius = radius
 
-    def radius(self):
-        """Get the value of the class radius."""
-        return (self.__radius)
-
-    @radius.setter
-    def radius(self, value):
-        if not all(isinstance(value, (int, float))):
-            raise TypeError("radius must be a number")
-        else:
-            self.__radius = value
-
     def area(self):
         """Area of the MagicClass."""
         return (self.__radius ** 2 * math.pi)
