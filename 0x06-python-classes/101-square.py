@@ -49,7 +49,8 @@ class Square:
     def my_print(self):
         """Print/draw the square with the character #."""
         if self.__size == 0:
-            print()
+            if self.__str != 1:
+                print()
             return
         else:
             [print() for i in range(self.__position[1])]
