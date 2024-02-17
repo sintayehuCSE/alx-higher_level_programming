@@ -5,6 +5,7 @@
    its instances'
 """
 
+
 class Square:
     """Define the Square class."""
     def __init__(self, size=0):
