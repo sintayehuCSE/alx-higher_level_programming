@@ -6,11 +6,11 @@ import math
 class MagicClass:
     """Magic class to convert bytecode."""
     def __init__(self, radius=0):
-        """Initialize the radius.
+        """Initialize the radius of the magic class.
         Args:
             radius (int, float): radius of the class
         """
-        self.__radius = 0
+        self.radius = radius
 
     @property
     def radius(self):
