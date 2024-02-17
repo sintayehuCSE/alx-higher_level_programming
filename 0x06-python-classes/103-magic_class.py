@@ -8,11 +8,13 @@ class MagicClass:
     def __init__(self, radius=0):
         """Initialize the radius of the magic class.
         Args:
-            radius (int, float): radius of the class
+            radius (int or float): radius of the class
         """
-        self.radius = radius
+        self.__radius = 0
+        if type(radius) is not int and type(radius) is not float:
+            raise TypeError("radius must be a number")
+        self.__radius = radius
 
-    @property
     def radius(self):
         """Get the value of the class radius."""
         return (self.__radius)
