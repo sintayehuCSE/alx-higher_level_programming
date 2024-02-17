@@ -6,10 +6,15 @@ import math
 class MagicClass:
     """Magic class to convert bytecode."""
     def __init__(self, radius=0):
+        """Initialize the radius.
+        Args:
+            radius (int, float): radius of the class
+        """
         self.__radius = 0
 
     @property
     def radius(self):
+        """Get the value of the class radius."""
         return (self.__radius)
 
     @radius.setter
@@ -20,7 +25,9 @@ class MagicClass:
             self.__radius = value
 
     def area(self):
-        return ((self.__radius ** 2) * math.pi)
+        """Area of the MagicClass."""
+        return (self.__radius ** 2 * math.pi)
 
     def circumference(self):
+        """Circumference of the MagicClass."""
         return (2 * math.pi * self.__radius)
