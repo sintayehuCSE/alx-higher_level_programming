@@ -1,0 +1,99 @@
+=============================
+The ``0-add_integer`` Module.
+=============================
+
+This module defines an integer adding function 'add_integer(a, b=98)'
+
+USING `add_integer`
+==================
+
+'add_integer(...)' returns the addition of its two arguments. The arguments
+are expected to be an exact integer. For integer the result of tis function is
+equal to the '+' operation on the two arguments.
+
+::
+	>>> add_integer = __import__('0-add_integer').add_integer
+	>>> add_integer(2, 3)
+	5
+
+::
+	>>> add_integer(2, -3)
+	-1
+
+The add_integer function can also work wit floating-point values.
+
+::
+	>>> add_integer(2.0, 5.0)
+	7
+
+::
+Note that foats are casted inti ints before addition is performed.
+::
+	>>> add_integer(2.9, 0.2)
+	2
+
+::
+	>>> add_integer(-2.9, -0.2)
+	-2
+::
+Floating and non-floating values can be combined.
+::
+	>>> add_integer(2.3, -3)
+	-1
+
+::
+The second argument to 'add_integer' function is optional, with def = 98
+::
+	>>> add_integer(2)
+	100
+
+::
+
+Non-Numbers
+===========
+
+`add_integer` function expects the two argument be either float or an int.
+if either of the argument fail to belong to either float or int, TypeError
+Exception is raised.
+::
+
+	>>> add_integer(2. "hello")
+	Traceback (most recent call last):
+		  ...
+	TypeError: b must be an integer
+
+::
+
+	>>> add_integer("hello", 2)
+	Traceback (most recent call last):
+		  ...
+	TypeError: a must be an integer
+
+::
+
+	>>> add_integer(None)
+	Traceback (most recent call last):
+	TypeError: a must be an integer
+
+::
+
+	>>> add_integer(2.3, None)
+	Traceback (most recent call last):
+		  ...
+	TypeError: b must be an integer
+
+::
+
+If both arguments value doesn't belong to either of float or int class,
+TypeError message for first argument `a must be an integer` is raised.
+
+::
+	>>> add_integer("hello", "there")
+	Traceback (most recent call last):
+		  ...
+	TypeError: a must be an integer
+
+::
+
+The function will fail if infinity float is provided as argument
+::
