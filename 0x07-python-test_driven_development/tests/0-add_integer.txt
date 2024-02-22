@@ -35,6 +35,7 @@ Note that foats are casted inti ints before addition is performed.
 ::
 	>>> add_integer(-2.9, -0.2)
 	-2
+
 ::
 Floating and non-floating values can be combined.
 ::
@@ -57,7 +58,7 @@ if either of the argument fail to belong to either float or int, TypeError
 Exception is raised.
 ::
 
-	>>> add_integer(2. "hello")
+	>>> add_integer(2, "hello")
 	Traceback (most recent call last):
 		  ...
 	TypeError: b must be an integer
@@ -96,4 +97,34 @@ TypeError message for first argument `a must be an integer` is raised.
 ::
 
 The function will fail if infinity float is provided as argument
+::
+	>>> add_integer(float('inf'))
+	Traceback (most recent call last):
+		  ...
+	OverflowError: cannot convert float infinity to integer
+
+::
+
+	>>> add_integer(2, float('inf'))
+	Traceback (most recent call last):
+		  ...
+	OverflowError: cannot convert float infinity to integer
+
+::
+
+The function will fail with float NaN as well.
+
+::
+
+	>>> add_integer(2, float('NaN'))
+	Traceback (most recent call last):
+		  ...
+	ValueError: cannot convert float NaN to integer
+
+::
+	>>> add_integer(float('NaN'))
+	Traceback (most recent call last):
+		  ...
+	ValueError: cannot convert float NaN to integer
+
 ::
