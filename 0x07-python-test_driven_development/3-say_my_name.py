@@ -21,13 +21,11 @@ def say_my_name(first_name, last_name=""):
     elif not first_name:
         raise ValueError("first_name cannot be empty")
     for char in first_name:
-        chr_ascii = ord(char)
-        if ((chr_ascii < 65) or (chr_ascii > 90 and chr_ascii < 97)
-            or (chr_ascii > 122)):
+        c = ord(char)
+        if c < 65 or (c > 90 and c < 97) or c > 122:
             raise ValueError("first_name should be made of alphabets")
     for char in last_name:
-        chr_ascii = ord(char)
-        if ((chr_ascii < 65) or (chr_ascii > 90 and chr_ascii < 97)
-            or (chr_ascii > 122)):
+        c = ord(char)
+        if c < 65 or (c > 90 and c < 97) or c > 122:
             raise ValueError("last_name should be made of alphabets")
     print(first_name, last_name)
