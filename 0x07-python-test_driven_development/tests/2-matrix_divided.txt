@@ -163,3 +163,18 @@ they ought to have number element only.
 	[[], [], []]
 
 ::
+
+	>>> matrix_divided([[2, 2, 2]], float('inf'))
+	[[0.0, 0.0, 0.0]]
+
+::
+
+	>>> matrix_divided([[float('inf') / float('NaN')]], 2)
+	[[nan]]
+
+::
+
+	>>> matrix_divided([[float('inf') / float('NaN')]], float('inf') / float('NaN'))
+	[[nan]]
+
+::
