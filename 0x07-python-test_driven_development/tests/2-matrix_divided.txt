@@ -158,3 +158,8 @@ they ought to have number element only.
 	TypeError: matrix must be a matrix (list of lists) of integers/floats
 
 ::
+
+	>>> matrix_divided([[], [], []], 2)
+	[[], [], []]
+
+::
