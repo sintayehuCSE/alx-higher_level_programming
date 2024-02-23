@@ -28,4 +28,4 @@ def say_my_name(first_name, last_name=""):
         c = ord(char)
         if c < 65 or (c > 90 and c < 97) or c > 122:
             raise ValueError("last_name should be made of alphabets")
-    print(first_name, last_name)
+    print("My name is ", first_name, last_name)
