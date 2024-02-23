@@ -12,7 +12,7 @@ USAGE
 ::
 	>>> say_my_name = __import__('3-say_my_name').say_my_name
 	>>> say_my_name("Sintayehu", "Mulugeta")
-	Sintayehu Mulugeta
+	My name is Sintayehu Mulugeta
 
 ::
 
@@ -88,7 +88,7 @@ The last name can only be a string and can be EMPTY
 ::
 
 	>>> say_my_name("Sintayehu")
-	Sintayehu 
+	My name is Sintayehu 
 
 ::
 
