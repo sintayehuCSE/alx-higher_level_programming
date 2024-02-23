@@ -1,0 +1,180 @@
+=============================
+How to use '3-say_my_name.py'
+=============================
+
+This module deefines a function that print a first and sur name given to it.
+
+USAGE
+=====
+
+'say_my_name' prints the first and last name given to it.
+
+::
+	>>> say_my_name = __import__('3-say_my_name').say_my_name
+	>>> say_my_name("Sintayehu", "Mulugeta")
+	Sintayehu Mulugeta
+
+::
+
+First name should always be a string
+====================================
+
+::
+
+	>>> say_my_name(None)
+	Traceback (most recent call last):
+		  ...
+	TypeError: first_name must be a string
+
+::
+
+	>>> say_my_name(3.25)
+	Traceback (most recent call last):
+		  ...
+	TypeError: first_name must be a string
+
+::
+
+	>>> say_my_name(50)
+	Traceback (most recent call last):
+		  ...
+	TypeError: first_name must be a string
+
+::
+
+	>>> say_my_name(('Sintayehu', 'Mulugeta'))
+	Traceback (most recent call last):
+		  ...
+	TypeError: first_name must be a string
+
+::
+
+	>>> say_my_name(['Sintayehu', 'Mulugeta'])
+	Traceback (most recent call last):
+		  ...
+	TypeError: first_name must be a string
+
+::
+
+	>>> say_my_name({'Sintayehu', 'Mulugeta'})
+	Traceback (most recent call last):
+		  ...
+	TypeError: first_name must be a string
+
+::
+
+	>>> say_my_name({'frst' : "Sintayehu", 'lst' : "Mulugeta"})
+	Traceback (most recent call last):
+		  ...
+	TypeError: first_name must be a string
+
+::
+
+First name cannot be EMPTY
+==========================
+
+::
+
+	>>> say_my_name("")
+	Traceback (most recent call last):
+		  ...
+	ValueError: first_name cannot be empty
+
+::
+
+The last name can only be a string and can be EMPTY
+===================================================
+
+::
+
+	>>> say_my_name("Sintayehu")
+	Sintayehu 
+
+::
+
+	>>> say_my_name("Sintayehu", 27.1)
+	Traceback (most recent call last):
+		  ...
+	TypeError: last_name must be a string
+
+::
+
+	>>> say_my_name("Sintayehu", 27)
+	Traceback (most recent call last):
+		  ...
+	TypeError: last_name must be a string
+
+::
+
+	>>> say_my_name("Sintayehu", None)
+	Traceback (most recent call last):
+		  ...
+	TypeError: last_name must be a string
+
+::
+
+	>>> say_my_name("Sintayehu", ('Mulugeta', 'Kebedde'))
+	Traceback (most recent call last):
+		  ...
+	TypeError: last_name must be a string
+
+::
+
+	>>> say_my_name("Sintayehu", ['Mulugeta', 'Kebedde'])
+	Traceback (most recent call last):
+		  ...
+	TypeError: last_name must be a string
+
+::
+
+	>>> say_my_name("Sintayehu", {'Mulugeta', 'Kebede'})
+	Traceback (most recent call last):
+		  ...
+	TypeError: last_name must be a string
+
+::
+
+	>>> say_my_name("Sintayehu", {"dad" : 'Mulugeta', "Gdad" : 'Kebede'})
+	Traceback (most recent call last):
+		  ...
+	TypeError: last_name must be a string
+
+::
+
+Each charachter in first name should be an English case letter.
+===============================================================
+
+::
+
+	>>> say_my_name("S!nt@yehu", "Mulugeta")
+	Traceback (most recent call last):
+		  ...
+	ValueError: first_name should be made of alphabets
+
+::
+
+	>>> say_my_name("27S!nt@yehu")
+	Traceback (most recent call last):
+		  ...
+	ValueError: first_name should be made of alphabets
+
+::
+
+Each character in last name should always be an English alphabets.
+==================================================================
+
+::
+
+	>>> say_my_name("Sintayehu", "Muluget@")
+	Traceback (most recent call last):
+		  ...
+	ValueError: last_name should be made of alphabets
+
+::
+
+	>>> say_my_name("Sintayehu", "38Mulugeta")
+	Traceback (most recent call last):
+		  ...
+	ValueError: last_name should be made of alphabets
+
+::
