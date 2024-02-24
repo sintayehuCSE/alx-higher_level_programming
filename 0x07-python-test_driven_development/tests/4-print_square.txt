@@ -20,3 +20,80 @@ USAGE
 	####
 
 ::
+
+The value of argument to the function can only be integer type.
+===============================================================
+::
+
+	>>> print_square(None)
+	Traceback (most recent call last):
+		  ...
+	TypeError: size must be an integer
+
+::
+
+	>>> print_square('3')
+	Traceback (most recent call last):
+		  ...
+	TypeError: size must be an integer
+
+::
+
+	>>> print_square(4.25)
+	Traceback (most recent call last):
+		  ...
+	TypeError: size must be an integer
+
+::
+
+	>>> print_square((4, 5))
+	Traceback (most recent call last):
+		  ...
+	TypeError: size must be an integer
+
+::
+
+	>>> print_square([3, 4])
+	Traceback (most recent call last):
+		  ...
+	TypeError: size must be an integer
+
+::
+
+	>>> print_square({4, 3})
+	Traceback (most recent call last):
+		  ...
+	TypeError: size must be an integer
+
+::
+
+	>>> print_square({'one' : 1, 'two' : 2})
+	Traceback (most recent call last):
+		  ...
+	TypeError: size must be an integer
+
+::
+
+The size argument is a mandatory argument.
+==========================================
+
+::
+
+	>>> print_square()
+	Traceback (most recent call last):
+		  ...
+	TypeError: print_square() missing 1 required positional argument: 'size'
+
+::
+
+The argument must be a positive integer or zero.
+================================================
+
+::
+
+	>>> print_square(-2)
+	Traceback (most recent call last):
+		  ...
+	ValueError: size must be >= 0
+
+::
