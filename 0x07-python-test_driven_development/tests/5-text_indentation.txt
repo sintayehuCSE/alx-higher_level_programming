@@ -1,0 +1,142 @@
+========================================
+How to use module `5-text_indentation.py`
+=========================================
+
+This module defines one function named as 'text_indentation(...)' that will
+parse a string passed to it and print out each character of the string. The function
+will print two new line for each occurence of this three delimiting character `.?:`
+
+USAGE
+=====
+
+The `text_indentation(...)` function takes in a strring argument and parse it
+while printing each character of the string plus two new line character for each
+occurence of this three characters `.?:` considered as delimeters by the function.
+
+::
+
+	>>> text_indentation = __import__('5-text_indentation').text_indentation
+	>>> text_indentation("Sintayehu Mulugeta Kebede")
+	Sintayehu Mulugeta Kebede
+
+::
+
+	>>> text_indentation(None)
+	Traceback (most recent call last):
+		  ...
+	TypeError: text must be a string
+
+::
+
+	>>> text_indentation(12)
+	Traceback (most recent call last):
+		  ...
+	TypeError: text must be a string
+
+::
+
+	>>> text_indentation(25.23)
+	Traceback (most recent call last):
+		  ...
+	TypeError: text must be a string
+
+::
+
+	>>> text_indentation(('Sintayehu', 'Mulugeta'))
+	Traceback (most recent call last):
+		  ...
+	TypeError: text must be a string
+
+::
+
+	>>> text_indentation(['Sintayehu', 'Mulugeta'])
+	Traceback (most recent call last):
+		  ...
+	TypeError: text must be a string
+
+::
+
+	>>> text_indentation({'Sintayehu', 'Mulugeta'})
+	Traceback (most recent call last):
+		  ...
+	TypeError: text must be a string
+
+::
+
+	>>> text_indentation({'frst' : 'Sintayehu', 'lst' : 'Mulugeta'})
+	Traceback (most recent call last):
+		  ...
+	TypeError: text must be a string
+
+::
+
+The argument to the function can not be EMPTY string.
+=====================================================
+
+::
+
+	>>> text_indentation("")
+	Traceback (most recent call last):
+		  ...
+	ValueError: text should not be empty
+
+::
+
+The function will fail if no argument is passed.
+================================================
+
+::
+
+	>>> text_indentation()
+	Traceback (most recent call last):
+		  ...
+	TypeError: text_indentation() missing 1 required positional argument: 'text'
+
+::
+
+The function prints two new line for each occurence of either `.`, `?`, or `:`.
+=============================================================================
+
+::
+
+	>>> text_indentation("Sintayehu. Mulugeta. Kebede")
+	Sintayehu.
+	<BLANKLINE>
+	Mulugeta.
+	<BLANKLINE>
+	Kebede
+
+::
+
+No leading or trailing whitespace on output line.
+=================================================
+
+::
+
+	>>> text_indentation("   Sintayehu Mulugeta Kebede ")
+	Sintayehu Mulugeta Kebede
+
+::
+
+No space before the delimeter and last word of the output line (if any).
+========================================================================
+
+::
+
+	>>> text_indentation("Sintayehu . Mulugeta")
+	Sintayehu.
+	<BLANKLINE>
+	Mulugeta
+
+::
+
+More than one white space between each word of input string is truncated to zero.
+
+::
+
+	>>> text_indentation("   Sintayehu   Mulugeta. Kebede")
+	SintayehuMulugeta.
+	<BLANKLINE>
+	Kebede
+
+::
