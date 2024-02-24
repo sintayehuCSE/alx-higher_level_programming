@@ -31,4 +31,3 @@ def text_indentation(text):
                 print(char)
                 print()
         size += 1
-    print()
