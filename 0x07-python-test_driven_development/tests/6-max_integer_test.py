@@ -27,7 +27,7 @@ class TestMaxInteger(unittest.TestCase):
 
     def testEmptyList(self):
         """Test for empty list as argument to the function."""
-        self.assertEqual(max_integer, None)
+        self.assertEqual(max_integer(), None)
 
     def testOneElementList(self):
         """Test case for list with one element."""
