@@ -17,7 +17,7 @@ class TestMaxInteger(unittest.TestCase):
 
     def testUnorderedList(self):
         """Test for mixed element of a integer list."""
-        unordered = [2, 3,4,7,6]
+        unordered = [2, 3, 4, 7, 6]
         self.assertEqual(max_integer(unordered), 7)
 
     def testMaxBegin(self):
@@ -63,6 +63,7 @@ class TestMaxInteger(unittest.TestCase):
         """Test case fo when a string argument is empty."""
         str_arg = ""
         self.assertEqual(max_integer(str_arg), None)
+
 
 if __name__ == "__main__":
     unittest.main()
