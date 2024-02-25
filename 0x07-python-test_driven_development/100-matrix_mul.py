@@ -61,8 +61,8 @@ def matrix_mul(m_a, m_b):
     for row in m_b:
         if len(m_b[0]) != len(row):
             raise TypeError("each row of m_b must be of the same size")
-    #WHEN IS TWO MATRIX CAN'T BE MULTIPLIED?, WHEN COLUMN OF m_a IS NOT EQUAL TO
-    #ROW OF m_b.
+    # WHEN IS TWO MATRIX CAN'T BE MULTIPLIED?, WHEN COLUMN OF m_a IS NOT EQUAL
+    # TO ROW OF m_b.
     if len(m_a[0]) != len(m_b):
         raise ValueError("m_a and m_b can't be multiplied")
     product_matrix = []
