@@ -212,9 +212,9 @@ equivalent. Otherwise, a ValueError is raised.
     ... [3, 4, 5]
     ... ]
     >>> m_b = m_a
-    >>> print(lazy_matrix_mul(m_a, m_b)) #doctest: +ELLIPSIS
+    >>> print(lazy_matrix_mul(m_a, m_b))
     Traceback (most recent call last):
     	      ...
-    ValueError: setting an array element with a sequence. ...
+    ValueError: setting an array element with a sequence.
 
 ::
