@@ -172,7 +172,7 @@ integers or floats! Otherwise, a ValueError or TypeError is raised
 
     >>> print(lazy_matrix_mul([[1, "non-number"]], [[{"a": 1}, 8.8]]))
     Traceback (most recent call last):
-    TypeError: Object arrays are not currently supported.
+    TypeError: Object arrays are not currently supported
 
 Finally, the length of all rows in matrices `m_a` and `m_b` should be
 equivalent. Otherwise, a ValueError is raised.
