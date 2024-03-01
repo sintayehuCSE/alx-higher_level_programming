@@ -63,3 +63,4 @@ class Rectangle:
                     print()
         else:
             return ("")
+        return ("")
