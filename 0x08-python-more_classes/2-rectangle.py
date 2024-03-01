@@ -52,4 +52,4 @@ class Rectangle:
         """Calculate the perimeter of a rectangle."""
         if not self.width or not self.height:
             return 0
-        return (2 *(self.width + self.height))
+        return (2 * (self.width + self.height))
