@@ -1,0 +1,128 @@
+===============================
+How to use 1-my_list.py module.
+===============================
+
+This module defines one class that print a list sorted in order.
+
+Usage
+=====
+The MyList class inherit list class and print sorted element of a list
+::
+
+	>>> MyList = __import__('1-my_list').MyList
+	>>> my_list = MyList()
+	>>> my_list.append(1)
+	>>> my_list.append(4)
+	>>> my_list.append(2)
+	>>> my_list.append(3)
+	>>> my_list.append(5)
+	>>> print(my_list)
+	[1, 4, 2, 3, 5]
+	>>> my_list.print_sorted()
+	[1, 2, 3, 4, 5]
+	>>> print(my_list)
+	[1, 4, 2, 3, 5]
+
+::
+
+The function fails if element of the list are not numbers
+
+::
+
+	>>> my_list.append('5')
+	>>> my_list.append(6)
+	>>> my_list.print_sorted()
+	Traceback (most recent call last):
+		  ...
+	TypeError: '<' not supported between instances of 'str' and 'int'
+
+::
+
+	>>> my_list.append(None)
+	>>> my_list.print_sorted()
+	Traceback (most recent call last):
+		  ...
+	TypeError: '<' not supported between instances of 'str' and 'int'
+
+::
+
+	>>> my_list.append((9, 0))
+	>>> my_list.print_sorted()
+	Traceback (most recent call last):
+		  ...
+	TypeError: '<' not supported between instances of 'str' and 'int'
+
+::
+
+	 >>> my_list.append([9, 0])
+	 >>> my_list.print_sorted()
+	 Traceback (most recent call last):
+	 	   ...
+	 TypeError: '<' not supported between instances of 'str' and 'int'
+
+::
+
+	>>> my_list.append({'one':1, 'two':2})
+	>>> my_list.print_sorted()
+	Traceback (most recent call last):
+		  ...
+	TypeError: '<' not supported between instances of 'str' and 'int'
+
+::
+
+	>>> my_list.append({1, 2})
+	>>> my_list.print_sorted()
+	Traceback (most recent call last):
+		  ...
+	TypeError: '<' not supported between instances of 'str' and 'int'
+
+::
+
+Empty list as argumet is possible
+==================================
+
+	>>> obj = MyList();
+	>>> obj.append([])
+	>>> obj.print_sorted()
+	[[]]
+
+::
+
+	>>> l = MyList();
+	>>> l.print_sorted()
+	[]
+
+::
+
+Float inf and nan are gracefully sorted.
+========================================
+
+::
+	>>> l.append(float('inf'))
+	>>> l.append(float('NaN'))
+	>>> l.print_sorted()
+	[inf, nan]
+
+::
+
+	>>> l.append(float('inf'))
+	>>> l.append(float('NaN'))
+	>>> l.append(1)
+	>>> l.append(2)
+	>>> l.append(3)
+	>>> l.print_sorted()
+	[inf, nan, inf, nan, 1, 2, 3]
+
+::
+Sorting of float and integer
+============================
+
+::
+
+	>>> ob = MyList()
+	>>> ob.append(3.24)
+	>>> ob.append(2)
+	>>> ob.print_sorted()
+	[2, 3.24]
+
+::
