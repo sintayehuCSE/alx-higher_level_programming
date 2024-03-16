@@ -5,4 +5,4 @@
 class BaseGeometry:
     """The base geometry class."""
     def area(self):
-        raise Exception("area() is not impelmented")
+        raise Exception("area() is not implemented")
