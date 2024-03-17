@@ -3,6 +3,7 @@
 
 
 class MyInt(int):
+    """The custom integer class."""
     def __eq__(self, other):
         """Compare self with other"""
         if self == other:
@@ -10,6 +11,7 @@ class MyInt(int):
         return True
 
     def __ne__(self, other):
+        """The not equal comparison."""
         if self == other:
             return True
         else:
