@@ -35,3 +35,80 @@ USGAE
 	ValueError: Distance must be greater than 0
 
 ::
+
+	>>> bg.integer_validator("Name", None)
+	Traceback (most recent call last):
+		  ...
+	TypeError: Name must be an integer
+
+::
+
+	>>> bg.integer_validator("Name", True)
+
+::
+	>>> bg.integer_validator("Name", False)
+	Traceback (most recent call last):
+		  ...
+	ValueError: Name must be greater than 0
+
+::
+
+	>>> bg.integer_validator("Name", 3+2j)
+	Traceback (most recent call last):
+		  ...
+	TypeError: Name must be an integer
+
+::
+
+	>>> bg.integer_validator("Name", 3.12)
+	Traceback (most recent call last):
+		  ...
+	TypeError: Name must be an integer
+
+::
+
+	>>> bg.integer_validator("Name", (3, 4,5))
+	Traceback (most recent call last):
+		  ...
+	TypeError: Name must be an integer
+
+::
+
+	>>> bg.integer_validator("Name", [3, 4,5])
+	Traceback (most recent call last):
+		  ...
+	TypeError: Name must be an integer
+
+::
+
+	>>> bg.integer_validator("Name", {3, 4,5})
+	Traceback (most recent call last):
+		  ...
+	TypeError: Name must be an integer
+
+::
+
+	>>> bg.integer_validator("Name", {'one':1, 'two':2})
+	Traceback (most recent call last):
+		  ...
+	TypeError: Name must be an integer
+
+::
+
+	>>> bg.integer_validator("Name")
+	Traceback (most recent call last):
+		  ...
+	TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
+
+::
+	>>> bg.integer_validator()
+	Traceback (most recent call last):
+		  ...
+	TypeError: BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+::
+
+	>>> bg.area()
+	Traceback (most recent call last):
+		  ...
+	Exception: area() is not implemented
