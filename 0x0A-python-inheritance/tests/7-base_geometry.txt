@@ -44,12 +44,15 @@ USGAE
 ::
 
 	>>> bg.integer_validator("Name", True)
+	Traceback (most recent call last):
+		  ...
+	TypeError: Name must be an integer
 
 ::
 	>>> bg.integer_validator("Name", False)
 	Traceback (most recent call last):
 		  ...
-	ValueError: Name must be greater than 0
+	TypeError: Name must be an integer
 
 ::
 
