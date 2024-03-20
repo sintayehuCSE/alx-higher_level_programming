@@ -11,7 +11,7 @@ load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
 
 
 size = len(sys.argv)
-i = 1;
+i = 1
 with open("add_item.json", "a", encoding="utf-8") as f:
     offset = f.seek(0, 2)
     if not offset:
