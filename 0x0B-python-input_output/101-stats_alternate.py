@@ -11,8 +11,8 @@ found = []
 line_no = 0
 file_size = 0
 try:
-    while (1):
-        line_content.append(sys.stdin.readline())
+    for line in sys.stdin:
+        line_content.append(line)
         line_no += 1
         if line_no == 10:
             for item in line_content:
