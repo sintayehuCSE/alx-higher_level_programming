@@ -92,6 +92,21 @@ class Rectangle(Base):
             [print("#", end="") for j in range(self.__width)]
             print()
 
+    def update(self, *args):
+        for i in range(len(args)):
+            if i == 5:
+                break
+            elif i == 0:
+                self.id = args[i]
+            elif i == 1:
+                self.__width = args[i]
+            elif i == 2:
+                self.__height = args[i]
+            elif i == 3:
+                self.__x = args[i]
+            elif i == 4:
+                self.__y = args[i]
+
     def __str__(self):
         """Return nice-printable string representation of Rectangle object."""
         s1 = "[Rectangle] " + '(' + str(self.id) + ')' + " " + str(self.__x)
