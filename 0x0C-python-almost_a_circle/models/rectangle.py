@@ -92,12 +92,17 @@ class Rectangle(Base):
             [print("#", end="") for j in range(self.__width)]
             print()
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """Updates the Rectangle instance with a tuple of argument.
            Args:
                self (Rectangle): The rectangle
-               args (tuple): Tuple of argument
+               args (tuple): Tuple of non-keyworded argument
+               kwargs (dictionary): Dictionary of key-worded argument
         """
+        if not args:
+            for key in kwargs:
+                self.key = kwargs[key]
+            return (1)
         for i in range(len(args)):
             if i == 5:
                 break
