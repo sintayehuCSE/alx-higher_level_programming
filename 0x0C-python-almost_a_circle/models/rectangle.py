@@ -93,6 +93,11 @@ class Rectangle(Base):
             print()
 
     def update(self, *args):
+        """Updates the Rectangle instance with a tuple of argument.
+           Args:
+               self (Rectangle): The rectangle
+               args (tuple): Tuple of argument
+        """
         for i in range(len(args)):
             if i == 5:
                 break
