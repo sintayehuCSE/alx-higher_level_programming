@@ -101,7 +101,16 @@ class Rectangle(Base):
         """
         if not args:
             for key in kwargs:
-                self.key = kwargs[key]
+                if key == "id":
+                    self.id = kwargs[key]
+                elif key == "width":
+                    self.width = kwargs[key]
+                elif key == 'height':
+                    self.height = kwargs[key]
+                elif key == "x":
+                    self.x = kwargs[key]
+                elif key == "y":
+                    self.y = kwargs[key]
             return (1)
         for i in range(len(args)):
             if i == 5:
