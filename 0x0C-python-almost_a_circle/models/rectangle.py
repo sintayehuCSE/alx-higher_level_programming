@@ -92,6 +92,6 @@ class Rectangle(Base):
 
     def __str__(self):
         """Return nice-printable string representation of Rectangle object."""
-        s1 = "[Rectangle] " + str(self.id) + " " + str(self.__x) + "/"
-        s = str(self.__y) + " - " + str(self.__width) + "/" + str(self.__height)
-        return (s1 + s)
+        s1 = "[Rectangle] " + '(' + str(self.id) + ')' + " " + str(self.__x)
+        s = "/" + str(self.__y) + " - " + str(self.__width) + "/"
+        return (s1 + s + str(self.__height))
