@@ -131,3 +131,10 @@ class Rectangle(Base):
         s1 = "[Rectangle] " + '(' + str(self.id) + ')' + " " + str(self.__x)
         s = "/" + str(self.__y) + " - " + str(self.__width) + "/"
         return (s1 + s + str(self.__height))
+
+    def to_dictionary(self):
+        """Construct a dictionary representation of Rectangle instances's
+           attribute.
+        """
+        return ({'id': self.id, 'width': self.width, 'height': self.height,
+                 'x': self.x, 'y': self.y})
