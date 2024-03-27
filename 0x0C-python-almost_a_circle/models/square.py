@@ -14,7 +14,6 @@ class Square(Rectangle):
                id (int): The id of the Square instance.
         """
         super().__init__(size, size, x, y, id)
-        print(self.__dict__)
 
     def __str__(self):
         """Return nice printable string representation of the string object"""
