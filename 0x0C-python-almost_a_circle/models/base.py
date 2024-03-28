@@ -41,7 +41,28 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
+        """Return dictionary object from JSON string."""
         if not json_string:
             return ([])
         else:
             return (json.loads(json_string))
+
+    @classmethod
+    def create(cls, **dictionary):
+        """Return a dummy instance with all attributes set.
+           Args:
+              cls (class): The class of dummy instance
+              dictionary (dict): Dictionary of dummy instance attribute.
+           Return:
+               O: if Unknown class name is encountered.
+               dummy_obj (object): If class name exist and valid.
+        """
+        if cls.__name__ == "Rectangle":
+            dummy_obj = cls(1, 1)
+        elif cls.__name__ == "Square":
+            dummy_obj = cls(1)
+        else:
+            print("Unknown class name")
+            return (0)
+        dummy_obj.update(**dictionary)
+        return (dummy_obj)
