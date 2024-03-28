@@ -66,3 +66,17 @@ class Base:
             return (0)
         dummy_obj.update(**dictionary)
         return (dummy_obj)
+
+    @classmethod
+    def load_from_file(cls):
+        """Return a list of instance, having their attribute set to data
+           from a file.
+        """
+        try:
+            with open(cls.__name__ + ".json", "r", encoding="utf-8") as f:
+                jstr = f.read()
+                list_dict = cls.from_json_string(jstr)
+                list_obj = [cls.create(**item) for item in list_dict]
+                return (list_obj)
+        except FileNotFoundError:
+            return ([])
