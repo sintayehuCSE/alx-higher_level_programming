@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Defines a base class for this project."""
 import json
+import turtle
 
 
 class Base:
@@ -102,3 +103,50 @@ class Base:
                 return (obj_list)
         except FileNotFoundError:
             return ([])
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """Draw a list of rectangles and Squares on Canvas.
+           Args:
+               list_rectangles (list): List of Rectangles instance.
+               list_squares (list): List of Square instance
+        """
+        tur_obj = turtle.Turtle()
+        tur_obj.shape("turtle")
+        tur_obj.screen.bgcolor("#00adef")
+        tur_obj.screen.title("Sintayehu Mulugeta Kebede")
+        tur_obj.speed(3)
+        tur_obj.pensize(5)
+        tur_obj.pu()
+        tur_obj.hideturtle()
+        tur_obj.goto(-165, 290)
+        tur_obj.pencolor("#ffffff")
+        tur_obj.write("Cooperative Bank of Oromia", True, align="center", font=("Arial", 30, "normal"))
+
+
+        tur_obj.penup()
+        tur_obj.home()
+        tur_obj.showturtle()
+        tur_obj.pencolor("#000000")
+        for rect in list_rectangles:
+            tur_obj.goto(rect.x, rect.y)
+            if not tur_obj.isdown():
+                tur_obj.down()
+            for i in range(2):
+                tur_obj.fd(rect.width)
+                tur_obj.left(90)
+                tur_obj.fd(rect.height)
+                tur_obj.lt(90)
+            tur_obj.up()
+        tur_obj.pencolor("#e38524")
+        for sqr in list_squares:
+            tur_obj.setpos(sqr.x, sqr.y)
+            if not tur_obj.isdown():
+                tur_obj.pendown()
+            for i in range(2):
+                tur_obj.forward(sqr.size)
+                tur_obj.left(90)
+                tur_obj.fd(sqr.size)
+                tur_obj.lt(90)
+            tur_obj.penup()
+        tur_obj.reset()
