@@ -2,6 +2,7 @@
 """Defines a base class for this project."""
 import json
 import turtle
+import csv
 
 
 class Base:
@@ -112,6 +113,7 @@ class Base:
                list_squares (list): List of Square instance
         """
         tur_obj = turtle.Turtle()
+        Base.__nb_objects += 1
         tur_obj.shape("turtle")
         tur_obj.screen.bgcolor("#00adef")
         tur_obj.screen.title("Sintayehu Mulugeta Kebede")
@@ -119,11 +121,11 @@ class Base:
         tur_obj.pensize(5)
         tur_obj.pu()
         tur_obj.hideturtle()
-        tur_obj.goto(-165, 290)
+        tur_obj.goto(-140, 290)
         tur_obj.pencolor("#ffffff")
-        tur_obj.write("Cooperative Bank of Oromia", True, align="center", font=("Arial", 30, "normal"))
-
-
+        tur_obj.write("Cooperative Bank of Oromia - {}".
+                      format(Base.__nb_objects), True, align="center",
+                      font=("Arial", 30, "normal"))
         tur_obj.penup()
         tur_obj.home()
         tur_obj.showturtle()
@@ -150,3 +152,4 @@ class Base:
                 tur_obj.lt(90)
             tur_obj.penup()
         tur_obj.reset()
+        del tur_obj
