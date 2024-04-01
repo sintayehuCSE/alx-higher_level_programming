@@ -421,7 +421,7 @@ class Test_Rectangle_Area(unittest.TestCase):
 class Test_Rectangle_stdout_method(unittest.TestCase):
     """Test the correctness of the __str__ magic method of Rectangle class."""
     @classmethod
-    def clipboard_stdout(cls, rect_obj, meth):
+    def clipboard_stdout(cls, rect_obj, meth=None):
         """Capture the content of a standard out-put stream.
            Args:
                cls (class): The class of this method.
@@ -440,9 +440,58 @@ class Test_Rectangle_stdout_method(unittest.TestCase):
 
         sys.stdout = sys.__stdout__
         return (clip)
-
-    def test_str_method_one(self):
-        ro = Rectangle(1, 1)
-        got = Test_Rectangle_stdout_method.clipboard_stdout(ro, "print")
-        expected = "[Rectangle] ({}) 0/0 - 1/1\n".format(ro.id)
+    # Test of the magic __str__ dendur method of Rectangle instance. #
+    def test_str_method_width_height(self):
+        rwh = Rectangle(1, 1)
+        got = Test_Rectangle_stdout_method.clipboard_stdout(rwh, "print")
+        expected = "[Rectangle] ({}) 0/0 - 1/1\n".format(rwh.id)
         self.assertEqual(got.getvalue(), expected)
+        got.close()
+
+    def test_str_method_width_height_x(self):
+        rwhx = Rectangle(1, 1, 10)
+        got = Test_Rectangle_stdout_method.clipboard_stdout(rwhx, "str")
+        expected = "[Rectangle] ({}) 10/0 - 1/1\n".format(rwhx.id)
+        self.assertEqual(got.getvalue(), expected)
+        got.close()
+
+    def test_str_method_width_height_x_y(self):
+        rwhxy = Rectangle(1, 1, 10, 20)
+        expected = "[Rectangle] ({}) 10/20 - 1/1".format(rwhxy.id)
+        self.assertEqual(expected, rwhxy.__str__())
+
+    def test_str_method_width_height_x_y_id(self):
+        rwhxyi = Rectangle(1, 1, 10, 20, 120)
+        expected = "[Rectangle] (120) 10/20 - 1/1"
+        self.assertEqual(expected, str(rwhxyi))
+
+    def test_direct_print(self):
+        rdp = Rectangle(1, 1, 10, 20, 120)
+        expected = None
+        self.assertEqual(expected, print(rdp))
+
+    def test_updated_print(self):
+        rup = Rectangle(1, 1)
+        rup.update(120, 30, 40, 10, 20)
+        expected = "[Rectangle] (120) 10/20 - 30/40\n"
+        got = Test_Rectangle_stdout_method.clipboard_stdout(rup, "print")
+        self.assertEqual(got.getvalue(), expected)
+        got.close()
+
+    def test_changed_print(self):
+        rcp = Rectangle(7, 7, 0, 0, 400)
+        rcp.width = 30
+        rcp.height = 40
+        rcp.x = 10
+        rcp.y = 20
+        expected = "[Rectangle] ({}) 10/20 - 30/40\n".format(rcp.id)
+        got = Test_Rectangle_stdout_method.clipboard_stdout(rcp, "str")
+        self.assertEqual(expected, got.getvalue())
+        got.close()
+
+    def test_invalid_call_to_dunder_str(self):
+        with self.assertRaises(TypeError):
+            ric = Rectangle(1, 1)
+            ric.__str__(1)
+
+    #Test of the display() method of Rectangle instance. #
