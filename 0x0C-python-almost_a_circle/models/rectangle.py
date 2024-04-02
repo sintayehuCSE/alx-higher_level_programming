@@ -118,13 +118,13 @@ class Rectangle(Base):
             elif i == 0:
                 self.id = args[i]
             elif i == 1:
-                self.__width = args[i]
+                self.width = args[i]
             elif i == 2:
-                self.__height = args[i]
+                self.height = args[i]
             elif i == 3:
-                self.__x = args[i]
+                self.x = args[i]
             elif i == 4:
-                self.__y = args[i]
+                self.y = args[i]
 
     def __str__(self):
         """Return nice-printable string representation of Rectangle object."""
