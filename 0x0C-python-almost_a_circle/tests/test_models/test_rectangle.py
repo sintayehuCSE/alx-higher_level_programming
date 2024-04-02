@@ -561,3 +561,508 @@ class Test_Rectangle_stdout_method(unittest.TestCase):
         with self.assertRaises(TypeError):
             rictdm = Rectangle(1, 1)
             rictdm.display(rictdm.id)
+
+
+class Test_Rectangle_Update_Method(unittest.TestCase):
+    """Test the correct operation of display() method of rectangle module."""
+    #Test with unpacked and packed tuple of argument
+    def test_update_wtup_no_argument(self):
+        runa = Rectangle(1, 1)
+        runa.update()
+        expected = {'id': runa.id, 'width': 1, 'height': 1, 'x': 0, 'y': 0}
+        got = {'id': runa.id, 'width': runa.width, 'height': runa.height, 'x':
+               runa.x, 'y': runa.y}
+        self.assertEqual(got, expected)
+
+    def test_update_wtup_id(self):
+        rui = Rectangle(1, 1)
+        rui.update(578)
+        expected = {'id': 578, 'width': 1, 'height': 1, 'x': 0, 'y': 0}
+        got = {'id': rui.id, 'width': rui.width, 'height': rui.height, 'x':
+               rui.x, 'y': rui.y}
+        self.assertEqual(got, expected)
+
+    def test_update_wtup_id_width(self):
+        ruiw = Rectangle(1, 1)
+        ruiw.update(586, 10)
+        expected = {'id': 586, 'width': 10, 'height': 1, 'x': 0, 'y': 0}
+        got = {'id': ruiw.id, 'width': ruiw.width, 'height': ruiw.height, 'x':
+               ruiw.x, 'y': ruiw.y}
+        self.assertEqual(got, expected)
+
+    def test_update_wtup_id_width_height(self):
+         ruiwh = Rectangle(1, 1)
+         ruiwh.update(594, 10, 20)
+         expected = {'id': 594, 'width': 10, 'height': 20, 'x': 0, 'y': 0}
+         got = {'id': ruiwh.id, 'width': ruiwh.width, 'height': ruiwh.height,
+                'x':ruiwh.x, 'y': ruiwh.y}
+         self.assertEqual(got, expected)
+
+    def test_update_wtup_id_width_height_x(self):
+        ruiwhx = Rectangle(1, 1)
+        ruiwhx.update(602, 10, 20, 100)
+        expected = {'id': 602, 'width': 10, 'height': 20, 'x': 100, 'y': 0}
+        got = {'id': ruiwhx.id, 'width': ruiwhx.width, 'height': ruiwhx.height,'x':
+               ruiwhx.x, 'y': ruiwhx.y}
+        self.assertEqual(got, expected)
+
+    def test_update_wtup_id_width_height_x_y(self):
+        ruiwhxy = Rectangle(1, 1)
+        ruiwhxy.update(610, 10, 20, 100, 200)
+        expected = {'id': 610, 'width': 10, 'height': 20, 'x': 100, 'y': 200}
+        got = {'id': ruiwhxy.id, 'width': ruiwhxy.width, 'height': ruiwhxy.height,
+               'x':ruiwhxy.x, 'y': ruiwhxy.y}
+        self.assertEqual(got, expected)
+
+    def test_update_wtup_excess_tuple_argument(self):
+        rueta = Rectangle(1, 1)
+        rueta.update(618, 10, 20, 100, 200, 400, 800, 1000)
+        expected = {'id': 618, 'width': 10, 'height': 20, 'x': 100, 'y': 200}
+        got = {'id': rueta.id, 'width': rueta.width, 'height': rueta.height,
+               'x':rueta.x, 'y': rueta.y}
+        self.assertEqual(got, expected)
+
+    def test_update_wtup_packed_empty(self):
+        rupe = Rectangle(1, 1)
+        args = ()
+        rupe.update(*args)
+        expected = {'id': rupe.id, 'width': 1, 'height': 1, 'x': 0, 'y': 0}
+        got = {'id': rupe.id, 'width': rupe.width, 'height': rupe.height, 'x':
+               rupe.x, 'y': rupe.y}
+        self.assertEqual(got, expected)
+
+    def test_update_wtup_packed_id(self):
+        rupi = Rectangle(1, 1)
+        args = (635, )
+        rupi.update(*args)
+        expected = {'id': 635, 'width': 1, 'height': 1, 'x': 0, 'y': 0}
+        got = {'id': rupi.id, 'width': rupi.width, 'height': rupi.height, 'x':
+               rupi.x, 'y': rupi.y}
+        self.assertEqual(got, expected)
+
+    def test_update_wtup_packed_id_width(self):
+        rupiw = Rectangle(1, 1)
+        args = (644, 10)
+        rupiw.update(*args)
+        expected = {'id': 644, 'width': 10, 'height': 1, 'x': 0, 'y': 0}
+        got = {'id': rupiw.id, 'width': rupiw.width, 'height': rupiw.height, 'x':
+               rupiw.x, 'y': rupiw.y}
+        self.assertEqual(got, expected)
+
+    def test_update_wtup_packed_id_width_height(self):
+        rupiwh = Rectangle(1, 1)
+        args = (658, 10, 20)
+        rupiwh.update(*args)
+        expected = {'id': 658, 'width': 10, 'height': 20, 'x': 0, 'y': 0}
+        got = {'id': rupiwh.id, 'width': rupiwh.width, 'height': rupiwh.height,
+                'x':rupiwh.x, 'y': rupiwh.y}
+        self.assertEqual(got, expected)
+
+    def test_update_wtup_packed_id_width_height_x(self):
+        rupiwhx = Rectangle(1, 1)
+        args = (667, 10, 20, 100)
+        rupiwhx.update(*args)
+        expected = {'id': 667, 'width': 10, 'height': 20, 'x': 100, 'y': 0}
+        got = {'id': rupiwhx.id, 'width': rupiwhx.width, 'height': rupiwhx.height,'x':
+               rupiwhx.x, 'y': rupiwhx.y}
+        self.assertEqual(got, expected)
+
+    def test_update_wtup_packed_id_width_height_x_y(self):
+        rupiwhxy = Rectangle(1, 1)
+        args = (676, 10, 20, 100, 200)
+        rupiwhxy.update(*args)
+        expected = {'id': 676, 'width': 10, 'height': 20, 'x': 100, 'y': 200}
+        got = {'id': rupiwhxy.id, 'width': rupiwhxy.width, 'height': rupiwhxy.height,
+               'x':rupiwhxy.x, 'y': rupiwhxy.y}
+        self.assertEqual(got, expected)
+
+    def test_update_wtup_packed_excess_tuple_argument(self):
+        rupeta = Rectangle(1, 1)
+        args = (685, 10, 20, 100, 200, 400, 800, 1000, 5000, 10000, 20000)
+        rupeta.update(*args)
+        expected = {'id': 685, 'width': 10, 'height': 20, 'x': 100, 'y': 200}
+        got = {'id': rupeta.id, 'width': rupeta.width, 'height': rupeta.height,
+               'x':rupeta.x, 'y': rupeta.y}
+        self.assertEqual(got, expected)
+
+    #Test with unpacked and packed key/value pairs of argument
+    def test_update_wdict_empty(self):
+        rude = Rectangle(1, 1)
+        rude.update()
+        expected = {'id': rude.id, 'width': 1, 'height': 1, 'x': 0, 'y': 0}
+        got = {'id': rude.id, 'width': rude.width, 'height': rude.height, 'x':
+               rude.x, 'y': rude.y}
+        self.assertEqual(got, expected)
+
+    def test_update_wdict_id(self):
+        rudi = Rectangle(1, 1)
+        rudi.update(id=699)
+        expected = {'id': 699, 'width': 1, 'height': 1, 'x': 0, 'y': 0}
+        got = {'id': rudi.id, 'width': rudi.width, 'height': rudi.height, 'x':
+               rudi.x, 'y': rudi.y}
+        self.assertEqual(got, expected)
+
+    def test_update_wdict_id_width(self):
+        rudiw = Rectangle(1,1)
+        rudiw.update(id=711, width=10)
+        expected = {'id': 711, 'width': 10, 'height': 1, 'x': 0, 'y': 0}
+        got = {'id': rudiw.id, 'width': rudiw.width, 'height': rudiw.height, 'x':
+               rudiw.x, 'y': rudiw.y}
+        self.assertEqual(got, expected)
+
+    def test_update_wdict_id_width_height(self):
+        rudiwh = Rectangle(1, 1)
+        rudiwh.update(id=719, width=10, height=20)
+        expected = {'id': 719, 'width': 10, 'height': 20, 'x': 0, 'y': 0}
+        got = {'id': rudiwh.id, 'width': rudiwh.width, 'height': rudiwh.height,
+                'x':rudiwh.x, 'y': rudiwh.y}
+        self.assertEqual(got, expected)
+
+    def test_update_wdict_id_width_height_x(self):
+        rudiwhx = Rectangle(1, 1)
+        rudiwhx.update(id=727, width=10, height=20, x=100)
+        expected = {'id': 727, 'width': 10, 'height': 20, 'x': 100, 'y': 0}
+        got = {'id': rudiwhx.id, 'width': rudiwhx.width, 'height': rudiwhx.height,'x':
+               rudiwhx.x, 'y': rudiwhx.y}
+        self.assertEqual(got, expected)
+
+    def test_update_wdict_id_width_height_x_y(self):
+        rudiwhxy = Rectangle(1, 1)
+        rudiwhxy.update(id=735, width=10, height=20, x=100, y=200)
+        expected = {'id': 735, 'width': 10, 'height': 20, 'x': 100, 'y': 200}
+        got = {'id': rudiwhxy.id, 'width': rudiwhxy.width, 'height': rudiwhxy.height,
+               'x':rudiwhxy.x, 'y': rudiwhxy.y}
+        self.assertEqual(got, expected)
+
+    def test_update_wdict_excess_dict_argument(self):
+        rudeta = Rectangle(1, 1)
+        rudeta.update(id=743, width=10, height=20, x=100, y=200, age=27, gcpa=4, rank=1)
+        expected = {'id': 743, 'width': 10, 'height': 20, 'x': 100, 'y': 200}
+        got = {'id': rudeta.id, 'width': rudeta.width, 'height': rudeta.height,
+               'x':rudeta.x, 'y': rudeta.y}
+        self.assertEqual(got, expected)
+    #Test with presence of packed keyworded argument
+    def test_update_wdict_packed_empty(self):
+        rupde = Rectangle(1, 1)
+        kwargs = {}
+        rupde.update(**kwargs)
+        expected = {'id': rupde.id, 'width': 1, 'height': 1, 'x': 0, 'y': 0}
+        got = {'id': rupde.id, 'width': rupde.width, 'height': rupde.height, 'x':
+               rupde.x, 'y': rupde.y}
+        self.assertEqual(got, expected)
+
+    def test_update_wdict_packed_id(self):
+        rudpi = Rectangle(1, 1)
+        kwargs = {'id': 760}
+        rudpi.update(**kwargs)
+        expected = {'id': 760, 'width': 1, 'height': 1, 'x': 0, 'y': 0}
+        got = {'id': rudpi.id, 'width': rudpi.width, 'height': rudpi.height, 'x':
+               rudpi.x, 'y': rudpi.y}
+        self.assertEqual(got, expected)
+
+    def test_update_wdict_packed_id_width(self):
+        rudpiw = Rectangle(1, 1)
+        kwargs = {'id': 770, 'width': 10}
+        rudpiw.update(**kwargs)
+        expected = {'id': 770, 'width': 10, 'height': 1, 'x': 0, 'y': 0}
+        got = {'id': rudpiw.id, 'width': rudpiw.width, 'height': rudpiw.height, 'x':
+               rudpiw.x, 'y': rudpiw.y}
+        self.assertEqual(got, expected)
+
+    def test_update_wdict_packed_id_width_height(self):
+        rudpiwh = Rectangle(1, 1)
+        kwargs = {'id': 780, 'width': 10, 'height': 20}
+        rudpiwh.update(**kwargs)
+        expected = {'id': 780, 'width': 10, 'height': 20, 'x': 0, 'y': 0}
+        got = {'id': rudpiwh.id, 'width': rudpiwh.width, 'height': rudpiwh.height, 'x':
+               rudpiwh.x, 'y': rudpiwh.y}
+        self.assertEqual(got, expected) 
+
+    def test_update_wdict_packed_id_width_height_x(self):
+        rudpiwhx = Rectangle(1, 1)
+        kwargs = {'id': 790, 'width': 10, 'height': 20, 'x': 100}
+        rudpiwhx.update(**kwargs)
+        expected = {'id': 790, 'width': 10, 'height': 20, 'x': 100, 'y': 0}
+        got = {'id': rudpiwhx.id, 'width': rudpiwhx.width, 'height': rudpiwhx.height, 'x':
+               rudpiwhx.x, 'y': rudpiwhx.y}
+        self.assertEqual(got, expected)           
+
+    def test_update_wdict_packed_id_width_height_x_y(self):
+        rudpiwhxy = Rectangle(1, 1)
+        kwargs = {'id': 797, 'width': 10, 'height': 20, 'x': 100, 'y': 200}
+        rudpiwhxy.update(**kwargs)
+        expected = {'id': 797, 'width': 10, 'height': 20, 'x': 100, 'y': 200}
+        got = {'id': rudpiwhxy.id, 'width': rudpiwhxy.width, 'height': rudpiwhxy.height, 'x':
+               rudpiwhxy.x, 'y': rudpiwhxy.y}
+        self.assertEqual(got, expected)
+
+    def test_update_wdict_packed_excess_dict_argument(self):
+        rudpeda = Rectangle(1, 1)
+        kwargs = {'id': 800, 'width': 10, 'height': 20, 'x': 100, 'y': 200, 'age': 27, 'cgpa': 4, 'rank': 1}
+        rudpeda.update(**kwargs)
+        expected = {'id': 800, 'width': 10, 'height': 20, 'x': 100, 'y': 200}
+        got = {'id': rudpeda.id, 'width': rudpeda.width, 'height': rudpeda.height, 'x':
+               rudpeda.x, 'y': rudpeda.y}
+        self.assertEqual(got, expected)
+    #Tuple argument versus keyworded argument priority test, if both present
+    def test_update_tup_or_dict_priority_one(self):
+        rutodpo = Rectangle(1, 1)
+        rutodpo.update(810, 10, 20, id=820, width=100, height=200, x=400, y=600)
+        expected = {'id': 810, 'width': 10, 'height': 20, 'x': 0, 'y': 0}
+        got = {'id': rutodpo.id, 'width': rutodpo.width, 'height': rutodpo.height, 'x':
+               rutodpo.x, 'y': rutodpo.y}
+        self.assertEqual(got, expected)
+
+    def test_update_tup_or_dict_priority_two(self):
+        rutodpt = Rectangle(1, 1)
+        kwargs = {'id': 797, 'width': 1000, 'height': 2000, 'x': 100, 'y': 200}
+        rutodpt.update(820, 10, 20, **kwargs)
+        expected = {'id': 820, 'width': 10, 'height': 20, 'x': 0, 'y': 0}
+        got = {'id': rutodpt.id, 'width': rutodpt.width, 'height': rutodpt.height, 'x':
+               rutodpt.x, 'y': rutodpt.y}
+        self.assertEqual(got, expected)
+
+    def test_update_tup_or_dict_priority_three(self):
+        rutodpth = Rectangle(1, 1)
+        args = (830, 10, 20)
+        rutodpth.update(*args, id=820, width=100, height=200, x=400, y=600)
+        expected = {'id': 830, 'width': 10, 'height': 20, 'x': 0, 'y': 0}
+        got = {'id': rutodpth.id, 'width': rutodpth.width, 'height': rutodpth.height, 'x':
+               rutodpth.x, 'y': rutodpth.y}
+        self.assertEqual(got, expected)
+
+    def test_update_tup_or_dict_priority_four(self):
+        rutodpf = Rectangle(1, 1)
+        args = (840, 10, 20)
+        kwargs = {'id': 797, 'width': 110, 'height': 210, 'x': 100, 'y': 200}
+        rutodpf.update(*args, **kwargs)
+        expected = {'id': 840, 'width': 10, 'height': 20, 'x': 0, 'y': 0}
+        got = {'id': rutodpf.id, 'width': rutodpf.width, 'height': rutodpf.height, 'x':
+               rutodpf.x, 'y': rutodpf.y}
+        self.assertEqual(got, expected)
+    #Test for checking invalid values of attribute during update operation.#
+    def test_update_wtup_none_id(self):
+        rutni = Rectangle(1, 1)
+        rutni.update(None)
+        expected = "[Rectangle] ({}) 0/0 - 1/1".format(rutni.id)
+        self.assertEqual(expected, str(rutni))
+
+    def test_update_wtup_twice(self):
+        r = Rectangle(10, 10, 10, 10, 10)
+        r.update(89, 2, 3, 4, 5, 6)
+        r.update(6, 5, 4, 3, 2, 89)
+        self.assertEqual("[Rectangle] (6) 3/2 - 5/4", str(r))
+
+    def test_update_wtup_invalid_width_type(self):
+        r = Rectangle(10, 10, 10, 10, 10)
+        with self.assertRaises(TypeError, msg="width must be an integer"):
+            r.update(89, "invalid")
+
+    def test_update_wtup_width_zero(self):
+        r = Rectangle(10, 10, 10, 10, 10)
+        with self.assertRaises(ValueError, msg="width must be > 0"):
+            r.update(89, 0)
+
+    def test_update_wtup_width_negative(self):
+        r = Rectangle(10, 10, 10, 10, 10)
+        with self.assertRaises(ValueError, msg="width must be > 0"):
+            r.update(89, -5)
+
+    def test_update_wtup_invalid_height_type(self):
+        r = Rectangle(10, 10, 10, 10, 10)
+        with self.assertRaises(TypeError, msg="height must be an integer"):
+            r.update(89, 2, "invalid")
+
+    def test_update_wtup_height_zero(self):
+        r = Rectangle(10, 10, 10, 10, 10)
+        with self.assertRaises(ValueError, msg="height must be > 0"):
+            r.update(89, 1, 0)
+
+    def test_update_wtup_height_negative(self):
+        r = Rectangle(10, 10, 10, 10, 10)
+        with self.assertRaises(ValueError, msg="height must be > 0"):
+            r.update(89, 1, -5)
+
+    def test_update_wtup_invalid_x_type(self):
+        r = Rectangle(10, 10, 10, 10, 10)
+        with self.assertRaises(TypeError, msg="x must be an integer"):
+            r.update(89, 2, 3, "invalid")
+
+    def test_update_wtup_x_negative(self):
+        r = Rectangle(10, 10, 10, 10, 10)
+        with self.assertRaises(ValueError, msg="x must be >= 0"):
+            r.update(89, 1, 2, -6)
+
+    def test_update_wtup_invalid_y(self):
+        r = Rectangle(10, 10, 10, 10, 10)
+        with self.assertRaises(TypeError, msg="y must be an integer"):
+            r.update(89, 2, 3, 4, "invalid")
+
+    def test_update_wtup_y_negative(self):
+        r = Rectangle(10, 10, 10, 10, 10)
+        with self.assertRaises(ValueError, msg="y must be >= 0"):
+            r.update(89, 1, 2, 3, -6)
+
+    def test_update_wtup_width_before_height(self):
+        r = Rectangle(10, 10, 10, 10, 10)
+        with self.assertRaises(TypeError, msg="width must be an integer"):
+            r.update(89, "invalid", "invalid")
+
+    def test_update_wtup_width_before_x(self):
+        r = Rectangle(10, 10, 10, 10, 10)
+        with self.assertRaises(TypeError, msg="width must be an integer"):
+            r.update(89, "invalid", 1, "invalid")
+
+    def test_update_wtup_width_before_y(self):
+        r = Rectangle(10, 10, 10, 10, 10)
+        with self.assertRaises(TypeError, msg="width must be an integer"):
+            r.update(89, "invalid", 1, 2, "invalid")
+
+    def test_update_wtup_height_before_x(self):
+        r = Rectangle(10, 10, 10, 10, 10)
+        with self.assertRaises(TypeError, msg="height must be an integer"):
+            r.update(89, 1, "invalid", "invalid")
+
+    def test_update_wtup_height_before_y(self):
+        r = Rectangle(10, 10, 10, 10, 10)
+        with self.assertRaises(TypeError, msg="height must be an integer"):
+            r.update(89, 1, "invalid", 1, "invalid")
+
+    def test_update_wtup_x_before_y(self):
+        r = Rectangle(10, 10, 10, 10, 10)
+        with self.assertRaises(TypeError, msg="x must be an integer"):
+            r.update(89, 1, 2, "invalid", "invalid")
+
+    def test_update_wdict_None_id(self):
+        r = Rectangle(10, 10, 10, 10, 10)
+        r.update(id=None)
+        correct = "[Rectangle] ({}) 10/10 - 10/10".format(r.id)
+        self.assertEqual(correct, str(r))
+
+    def test_update_wdict_None_id_and_more(self):
+        r = Rectangle(10, 10, 10, 10, 10)
+        r.update(id=None, height=7, y=9)
+        correct = "[Rectangle] ({}) 10/9 - 10/7".format(r.id)
+        self.assertEqual(correct, str(r))
+
+    def test_update_wdict_twice(self):
+        r = Rectangle(10, 10, 10, 10, 10)
+        r.update(id=89, x=1, height=2)
+        r.update(y=3, height=15, width=2)
+        self.assertEqual("[Rectangle] (89) 1/3 - 2/15", str(r))
+
+    def test_update_wdict_invalid_width_type(self):
+        r = Rectangle(10, 10, 10, 10, 10)
+        with self.assertRaises(TypeError, msg="width must be an integer"):
+            r.update(width="invalid")
+
+    def test_update_wdict_width_zero(self):
+        r = Rectangle(10, 10, 10, 10, 10)
+        with self.assertRaises(ValueError, msg="width must be > 0"):
+            r.update(width=0)
+
+    def test_update_wdict_width_negative(self):
+        r = Rectangle(10, 10, 10, 10, 10)
+        with self.assertRaises(ValueError, msg="width must be > 0"):
+            r.update(width=-5)
+
+    def test_update_wdict_invalid_height_type(self):
+        r = Rectangle(10, 10, 10, 10, 10)
+        with self.assertRaises(TypeError, msg="height must be an integer"):
+            r.update(height="invalid")
+
+    def test_update_wdict_height_zero(self):
+        r = Rectangle(10, 10, 10, 10, 10)
+        with self.assertRaises(ValueError, msg="height must be > 0"):
+            r.update(height=0)
+
+    def test_update_wdict_height_negative(self):
+        r = Rectangle(10, 10, 10, 10, 10)
+        with self.assertRaises(ValueError, msg="height must be > 0"):
+            r.update(height=-5)
+
+    def test_update_wdict_inavlid_x_type(self):
+        r = Rectangle(10, 10, 10, 10, 10)
+        with self.assertRaises(TypeError, msg="x must be an integer"):
+            r.update(x="invalid")
+
+    def test_update_wdict_x_negative(self):
+        r = Rectangle(10, 10, 10, 10, 10)
+        with self.assertRaises(ValueError, msg="x must be >= 0"):
+            r.update(x=-5)
+
+    def test_update_wdict_invalid_y_type(self):
+        r = Rectangle(10, 10, 10, 10, 10)
+        with self.assertRaises(TypeError, msg="y must be an integer"):
+            r.update(y="invalid")
+
+    def test_update_wdict_y_negative(self):
+        r = Rectangle(10, 10, 10, 10, 10)
+        with self.assertRaises(ValueError, msg="y must be >= 0"):
+            r.update(y=-5)
+
+    def test_update_wtup_and_wdict(self):
+        r = Rectangle(10, 10, 10, 10, 10)
+        r.update(89, 2, height=4, y=6)
+        self.assertEqual("[Rectangle] (89) 10/10 - 2/10", str(r))
+
+    def test_update_wdict_wrong_keys(self):
+        r = Rectangle(10, 10, 10, 10, 10)
+        r.update(a=5, b=10)
+        self.assertEqual("[Rectangle] (10) 10/10 - 10/10", str(r))
+
+    def test_update_wdict_some_wrong_keys(self):
+        r = Rectangle(10, 10, 10, 10, 10)
+        r.update(height=5, id=89, a=1, b=54, x=19, y=7)
+        self.assertEqual("[Rectangle] (89) 19/7 - 10/5", str(r))
+
+
+class Test_Rectangle_to_dictionary(unittest.TestCase):
+    """Unittests for testing to_dictionary method of the Rectangle class."""
+
+    def test_to_dictionary_output(self):
+        r = Rectangle(10, 2, 1, 9, 5)
+        correct = {'x': 1, 'y': 9, 'id': 5, 'height': 2, 'width': 10}
+        self.assertDictEqual(correct, r.to_dictionary())
+
+    def test_to_dictionary_no_object_changes(self):
+        r1 = Rectangle(10, 2, 1, 9, 5)
+        r2 = Rectangle(5, 9, 1, 2, 10)
+        r2.update(**r1.to_dictionary())
+        self.assertNotEqual(r1, r2)
+
+    def test_to_dictionary_arg(self):
+        r = Rectangle(10, 2, 4, 1, 2)
+        with self.assertRaises(TypeError):
+            r.to_dictionary(1)
+
+
+class Test_Rectangle_order_of_initialization(unittest.TestCase):
+    """Unittests for testing Rectangle order of attribute initialization."""
+
+    def test_width_before_height(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Rectangle("invalid width", "invalid height")
+
+    def test_width_before_x(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Rectangle("invalid width", 2, "invalid x")
+
+    def test_width_before_y(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Rectangle("invalid width", 2, 3, "invalid y")
+
+    def test_height_before_x(self):
+        with self.assertRaisesRegex(TypeError, "height must be an integer"):
+            Rectangle(1, "invalid height", "invalid x")
+
+    def test_height_before_y(self):
+        with self.assertRaisesRegex(TypeError, "height must be an integer"):
+            Rectangle(1, "invalid height", 2, "invalid y")
+
+    def test_x_before_y(self):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Rectangle(1, 2, "invalid x", "invalid y")
+
+if __name__ == "__main__":
+    unittest.main() 
