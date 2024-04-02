@@ -419,7 +419,9 @@ class Test_Rectangle_Area(unittest.TestCase):
 
 
 class Test_Rectangle_stdout_method(unittest.TestCase):
-    """Test the correctness of the __str__ magic method of Rectangle class."""
+    """Test the correctness of the __str__ magic method of Rectangle class.
+       Plus the out-put of the display method of Rectangle class.
+    """
     @classmethod
     def clipboard_stdout(cls, rect_obj, meth=None):
         """Capture the content of a standard out-put stream.
@@ -440,7 +442,7 @@ class Test_Rectangle_stdout_method(unittest.TestCase):
 
         sys.stdout = sys.__stdout__
         return (clip)
-    # Test of the magic __str__ dendur method of Rectangle instance. #
+    # Test of the magic __str__ method of Rectangle instance. #
     def test_str_method_width_height(self):
         rwh = Rectangle(1, 1)
         got = Test_Rectangle_stdout_method.clipboard_stdout(rwh, "print")
@@ -495,3 +497,67 @@ class Test_Rectangle_stdout_method(unittest.TestCase):
             ric.__str__(1)
 
     #Test of the display() method of Rectangle instance. #
+    def test_display_width_height_one(self):
+        rdwho = Rectangle(2, 2)
+        got = Test_Rectangle_stdout_method.clipboard_stdout(rdwho)
+        expected = "##\n##\n"
+        self.assertEqual(got.getvalue(), expected)
+        got.close()
+
+    def test_display_width_height_two(self):
+        rdwht = Rectangle(4, 6)
+        got = Test_Rectangle_stdout_method.clipboard_stdout(rdwht, "display")
+        expected = "####\n####\n####\n####\n####\n####\n"
+        self.assertEqual(got.getvalue(), expected)
+        got.close()
+
+    def test_display_width_height_x(self):
+        rdwhx = Rectangle(2, 2, 2)
+        got = Test_Rectangle_stdout_method.clipboard_stdout(rdwhx, "display")
+        expected = "  ##\n  ##\n"
+        self.assertEqual(got.getvalue(), expected)
+        got.close()
+
+    def test_display_width_height_three(self):
+        rdwh3 = Rectangle(1, 1)
+        got = Test_Rectangle_stdout_method.clipboard_stdout(rdwh3)
+        self.assertEqual("#\n", got.getvalue())
+        got.close()
+
+    def test_display_width_height_y(self):
+        rdwhy = Rectangle(2, 2, y=2)
+        got = Test_Rectangle_stdout_method.clipboard_stdout(rdwhy)
+        self.assertEqual("\n\n##\n##\n", got.getvalue())
+        got.close()
+
+    def test_display_width_height_x_y(self):
+        rdwhxy = Rectangle(2, 2, 2, 2)
+        got = Test_Rectangle_stdout_method.clipboard_stdout(rdwhxy)
+        expected = "\n\n  ##\n  ##\n"
+        self.assertEqual(expected, got.getvalue())
+        got.close()
+
+    def test_updated_display(self):
+        rud = Rectangle(1, 1)
+        args = (rud.id, 3, 3, 2, 2)
+        rud.update(*args)
+        got = Test_Rectangle_stdout_method.clipboard_stdout(rud, "display")
+        expected = "\n\n  ###\n  ###\n  ###\n"
+        self.assertEqual(expected, got.getvalue())
+        got.close()
+
+    def test_changed_display(self):
+        rcd = Rectangle(1, 1)
+        rcd.width = 3
+        rcd.height = 3
+        rcd.x = 2
+        rcd.y = 2
+        got = Test_Rectangle_stdout_method.clipboard_stdout(rcd, "display")
+        expected = "\n\n  ###\n  ###\n  ###\n"
+        self.assertEqual(expected, got.getvalue())
+        got.close()
+
+    def test_invalid_call_to_display_method(self):
+        with self.assertRaises(TypeError):
+            rictdm = Rectangle(1, 1)
+            rictdm.display(rictdm.id)
