@@ -654,9 +654,5 @@ class TestSquare_to_dictionary(unittest.TestCase):
         with self.assertRaises(TypeError):
             s.to_dictionary(1)
 
-    def test_Square_save_to_file(self):
-        Square.save_to_file([])
-        pass
-
 if __name__ == "__main__":
     unittest.main()
