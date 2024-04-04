@@ -1063,6 +1063,9 @@ class Test_Rectangle_order_of_initialization(unittest.TestCase):
     def test_x_before_y(self):
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
             Rectangle(1, 2, "invalid x", "invalid y")
+    def test_Rectangle_save_to_file(self):
+        Rectangle.save_to_file([])
+        pass
 
 if __name__ == "__main__":
     unittest.main() 
