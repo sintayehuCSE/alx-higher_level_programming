@@ -1,9 +1,9 @@
 #!/usr/bin/node
-let arr = Number(process.argv);
+let arr = process.argv.map((n) => Number(n));
 arr = arr.filter((n) => !isNaN(n));
 const len = arr.length;
 if (len === 0 || len === 1) {
-  console.log(1);
+  console.log(0);
 } else {
   let secBig;
   let count = 0;
