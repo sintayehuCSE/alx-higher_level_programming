@@ -1,4 +1,4 @@
-#!/usr/bin/pyhton3
+#!/usr/bin/python3
 """Articulate definition of class State using
 declarative system of SQLAlchemy ORM."""
 from sqlalchemy import create_engine
