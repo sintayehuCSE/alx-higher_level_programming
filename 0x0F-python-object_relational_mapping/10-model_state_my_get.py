@@ -13,11 +13,10 @@ if __name__ == "__main__":
                            pool_pre_ping=True, echo=True)
     Session = sessionmaker(bind=engine)
     session = Session()
-    qry = session.query(State).filter(State.name.like('{}'
-                                                      .format(argv[4]))).one_or_none()
+    qry = session.query(State).filter(State.name.
+                                      like('{}'.format(argv[4]))).one_or_none()
     if qry:
-        #for row in qry:
-            print(qry.id)
+        print(qry.id)
     else:
         print('Not found')
     session.close()
