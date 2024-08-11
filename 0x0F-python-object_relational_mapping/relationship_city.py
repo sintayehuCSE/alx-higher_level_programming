@@ -2,7 +2,7 @@
 """
 Declares a class that performs mapping to table in DB
 """
-from model_state import Base
+from relationship_state import Base, State
 from sqlalchemy import Column, String, Integer, ForeignKey
 from sqlalchemy.orm import relationship
 
@@ -15,3 +15,4 @@ class City(Base):
     id = Column(Integer, unique=True, nullable=False, primary_key=True)
     name = Column(String(128), nullable=False)
     state_id = Column(Integer, ForeignKey('states.id'), nullable=False)
+    state = relationship('State', back_populates='cities')
