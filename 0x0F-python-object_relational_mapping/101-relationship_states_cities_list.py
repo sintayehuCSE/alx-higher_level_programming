@@ -18,7 +18,7 @@ if __name__ == '__main__':
     for state in qry:
         print(state.id, state.name, sep=': ')
         for city in state.cities:
-            print('\t', end='')
+            print('    ', end='')
             print(city.id, city.name, sep=': ')
 
     session.close()
