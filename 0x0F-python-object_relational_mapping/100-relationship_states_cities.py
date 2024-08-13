@@ -3,9 +3,8 @@
 Creates state and its cities simultaneously
 """
 if __name__ == '__main__':
-    from relationship_state import State
+    from relationship_state import State, Base
     from relationship_city import City
-    from model_state import Base
     from sqlalchemy import create_engine
     from sys import argv
     from sqlalchemy.orm import sessionmaker
