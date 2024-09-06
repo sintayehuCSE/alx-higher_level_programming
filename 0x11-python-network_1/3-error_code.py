@@ -2,6 +2,7 @@
 """A script that make URL request while handling exceptions"""
 from sys import argv
 from urllib import request
+from urllib.error import HTTPError
 
 
 if __name__ == "__main__":
